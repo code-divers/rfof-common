@@ -36,11 +36,15 @@ export class CageModule {
 	lna: LNAStatus;
 	biasT: BiasTState;
 	laser: LNAStatus;
+	rfLinkTest: RfLinkTest;
 	rfLinkTestTime: string;
+	measRfLevel: MeasRfLevel;
 	dfbBias: string;
 	optAlarmLevel: string;
 	monPlan: MonPlan;
 	monInterval: string;
+	setDefaults: SetDefaults;
+	restoreFactory: RestoreFactory;
 }
 
 export class EventLogItem {
@@ -50,7 +54,7 @@ export class EventLogItem {
 }
 
 export class PowerSupply {
-	status: PowerStatus
+	status: PowerStatus;
 }
 
 export class TrapReciver {
@@ -60,16 +64,17 @@ export class TrapReciver {
 }
 
 export enum PowerStatus {
-	ok = 0,
-	failure=1
+	failure = 0,
+	ok = 1,
+	unknown = 3
 }
 
 export enum TrapLevelFilter {
-	critical=0,
-	warning=1, 
-	change=2,
-	notify=3,
-	system=4
+	critical = 0,
+	warning = 1,
+	change = 2,
+	notify = 3,
+	system = 4
 }
 
 export enum GroupType {
@@ -111,9 +116,9 @@ export enum ModuleStatus {
 	fault = 5
 }
 
-export enum ModuleStatusLED { 
+export enum ModuleStatusLED {
 	off = 0,
-	green = 1, 
+	green = 1,
 	red = 2,
 	cyan = 3,
 	blue = 4,
@@ -122,28 +127,50 @@ export enum ModuleStatusLED {
 }
 
 export enum LNAStatus {
-	off=0,
-	on=1,
-	none=4
+	off = 0,
+	on = 1,
+	none = 4
 }
 
 export enum BiasTState {
-	off=0,
-	on=1,
-	alwayson=2,
-	autoopla=3,
-	none=4
+	off = 0,
+	on = 1,
+	alwayson = 2,
+	autoopla = 3,
+	none = 4
 }
 
 export enum MonPlan {
-	sleep=0,
-	active=1
+	sleep = 0,
+	active = 1
 }
 
 export enum EventLevel {
-	critical=0,
-	warning=1,
-	change=2,
-	notify=3,
-	system=4
+	critical = 0,
+	warning = 1,
+	change = 2,
+	notify = 3,
+	system = 4
 }
+
+export enum RfLinkTest {
+	off = 0,
+	on = 1
+}
+
+export enum MeasRfLevel {
+	off = 0,
+	on = 1
+}
+
+export enum SetDefaults {
+	unchanged = 0,
+	setDefaults = 1,
+	changed = 2
+}
+
+export enum RestoreFactory {
+	noAction = 0,
+	restoreFactory = 1
+}
+
