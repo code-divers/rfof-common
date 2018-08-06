@@ -1,7 +1,7 @@
 {
-  "name": "rfof-api",
+  "name": "rfof-common",
   "version": "1.0.0",
-  "description": "RFof API for interface clients",
+  "description": "RFof common library for interface clients",
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -16,7 +16,7 @@
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
-    "url": "git@github.com:code-divers/rfof-api.git"
+    "url": "git@github.com:code-divers/rfof-common.git"
   },
   "author": {
     "name": "Yehuda Tuvia",

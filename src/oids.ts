@@ -20,12 +20,12 @@ export const CAGE_VARBINDS: SnmpVarBind[] = [{
 }, {
 	name: 'slotsCount',
 	oid: '1.3.6.1.4.1.40570.1.1.8'
-}]
+}];
 
 export const POWER_VARBINDS: SnmpVarBind[] = [{
-	name:'status',
-	oid:'1.3.6.1.4.1.40570.1.3'
-}]
+	name: 'status',
+	oid: '1.3.6.1.4.1.40570.1.3'
+}];
 
 export const CAGENETWORK_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.7',
@@ -39,7 +39,7 @@ export const CAGENETWORK_TABLE: SnmpTable = {
 		index: 4,
 		name: 'community'
 	}]
-}
+};
 
 export const CAGEGROUP_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.5',
@@ -59,7 +59,7 @@ export const CAGEGROUP_TABLE: SnmpTable = {
 		index: 7,
 		name: 'status'
 	}]
-}
+};
 
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
@@ -145,7 +145,7 @@ export const CAGEMODULE_TABLE: SnmpTable = {
 		index: 28,
 		name: 'rfTestTimer'
 	}]
-}
+};
 
 export const CAGEEVENTS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.8',
@@ -159,7 +159,7 @@ export const CAGEEVENTS_TABLE: SnmpTable = {
 		index: 4,
 		name: 'detail'
 	}]
-}
+};
 
 export interface SnmpVarBind {
 	name?: string;
@@ -170,7 +170,7 @@ export interface SnmpVarBind {
 export interface SnmpTableColumn {
 	index: number;
 	name: string;
-	value?: string; 
+	value?: string;
 }
 
 export interface SnmpTable {
