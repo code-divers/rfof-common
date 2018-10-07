@@ -1,3 +1,19 @@
+export enum ObjectType {
+	Boolean = 1,
+	Integer = 2,
+	OctetString = 4,
+	Null = 5,
+	OID = 6,
+	IpAddress = 64,
+	Counter = 65,
+	Gauge = 66,
+	TimeTicks= 67,
+	Opaque = 68,
+	Counter64 = 70,
+	NoSuchObject = 128,
+	NoSuchInstance = 129,
+	EndOfMibView = 130
+}
 
 export const CAGE_VARBINDS: SnmpVarBind[] = [{
 	name: 'description',
@@ -20,6 +36,67 @@ export const CAGE_VARBINDS: SnmpVarBind[] = [{
 }, {
 	name: 'slotsCount',
 	oid: '1.3.6.1.4.1.40570.1.1.8'
+}];
+
+export const CAGE_MODULE_VARBINDS: SnmpVarBind[] = [{
+	name: 'lna',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.12',
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mLNA.{{index}} integer {{value}}'
+}, {
+	name: 'atten',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.11',
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mAtten.{{index}} string {{value}}'
+}, {
+	name: 'biasT',
+	type: ObjectType.Integer,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mBiasT.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.13'
+}, {
+	name: 'laser',
+	type: ObjectType.Integer,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mLaser.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.14'
+}, {
+	name: 'rfLevel',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.16'
+}, {
+	name: 'rfLinkTest',
+	type: ObjectType.Integer,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRFlinkTest.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.15'
+}, {
+	name: 'rfLinkTestTime',
+	type: ObjectType.OctetString,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRFlinkTestTime.{{index}} string {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.17'
+}, {
+	name: 'monPlan',
+	type: ObjectType.OctetString,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mMonPlan.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.20'
+}, {
+	name: 'monInterval',
+	type: ObjectType.OctetString,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mMonInterval.{{index}} string {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.21'
+}, {
+	name: 'optAlarmLevel',
+	type: ObjectType.OctetString,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mOptAlarmLevel.{{index}} string {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.19'
+}, {
+	name: 'setDefaults',
+	type: ObjectType.Integer,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mSetDefaults.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.22'
+}, {
+	name: 'restoreFactory',
+	type: ObjectType.Integer,
+	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRestoreFactory.{{index}} integer {{value}}',
+	oid: '1.3.6.1.4.1.40570.1.6.1.23'
 }];
 
 export const POWER_VARBINDS: SnmpVarBind[] = [{
@@ -163,8 +240,11 @@ export const CAGEEVENTS_TABLE: SnmpTable = {
 
 export interface SnmpVarBind {
 	name?: string;
+	type?: number;
 	oid: string;
+	index?: string;
 	value?: string;
+	command?: string;
 }
 
 export interface SnmpTableColumn {

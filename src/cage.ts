@@ -20,6 +20,7 @@ export class CageGroup {
 export class CageModule {
 	name: string;
 	group: CageGroup;
+	index: string;
 	slot: number;
 	type: ModuleType;
 	status: ModuleStatus;
@@ -136,7 +137,7 @@ export enum BiasTState {
 	off = 0,
 	on = 1,
 	alwayson = 2,
-	autoopla = 3,
+	autoplay = 3,
 	none = 4
 }
 

@@ -12,17 +12,20 @@ rm rfof-client.zip
 
 echo "install rfof-common package"
 cd /etc/RFoptic/rfof-common
-npm install
+#npm install
 npm run build
 
 echo "install rfof-server package"
 cd /etc/RFoptic/rfof-server
-npm install
+#npm install
 npm run build
 
 echo "install rfof-client package"
 cd /etc/RFoptic/rfof-client
-npm install
+#npm install
 npm run build
+
+sudo systemctl stop rfof-server-service
+sudo systemctl start rfof-server-service
 
 
