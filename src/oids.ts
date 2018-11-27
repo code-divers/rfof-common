@@ -1,259 +1,323 @@
 export enum ObjectType {
-	Boolean = 1,
-	Integer = 2,
-	OctetString = 4,
-	Null = 5,
-	OID = 6,
-	IpAddress = 64,
-	Counter = 65,
-	Gauge = 66,
-	TimeTicks= 67,
-	Opaque = 68,
-	Counter64 = 70,
-	NoSuchObject = 128,
-	NoSuchInstance = 129,
-	EndOfMibView = 130
+	Integer = "integer",
+	OctetString = "string"
 }
 
 export const CAGE_VARBINDS: SnmpVarBind[] = [{
 	name: 'description',
-	oid: '1.3.6.1.4.1.40570.1.1.2'
+	systemName: 'pDescription',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.1.1'
 }, {
 	name: 'serial',
+	systemName: 'pSerial',
+	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.1.3'
 }, {
 	name: 'version',
+	systemName: 'pVersion',
+	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.1.4'
 }, {
 	name: 'versionDate',
+	systemName: 'pVerDate',
+	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.1.5'
 }, {
 	name: 'psCount',
+	systemName: 'pPSCount',
+	type: ObjectType.Integer,
 	oid: '1.3.6.1.4.1.40570.1.1.6'
 }, {
 	name: 'grCount',
+	systemName: 'pGrpCount',
+	type: ObjectType.Integer,
 	oid: '1.3.6.1.4.1.40570.1.1.7'
 }, {
 	name: 'slotsCount',
+	systemName: 'pSlotsCount',
+	type: ObjectType.Integer,
 	oid: '1.3.6.1.4.1.40570.1.1.8'
 }];
 
-export const CAGE_MODULE_VARBINDS: SnmpVarBind[] = [{
-	name: 'lna',
+export const CAGE_GROUP_VARBINDS: SnmpVarBind[] = [{
+	name: 'name',
+	systemName: 'gName',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.5.1.2',
+	tableIndex: 1
+}, {
+	name: 'type',
+	systemName: 'gType',
 	type: ObjectType.Integer,
-	oid: '1.3.6.1.4.1.40570.1.6.1.12',
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mLNA.{{index}} integer {{value}}'
+	oid: '1.3.6.1.4.1.40570.1.5.1.3',
+	tableIndex: 2
+}, {
+	name: 'mdCount',
+	systemName: 'gMdlCount',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.5.1.4',
+	tableIndex: 3
+}, {
+	name: 'redundancySwitch',
+	systemName: 'gRedundancySwitch',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.5.1.5',
+	tableIndex: 4
+}, {
+	name: 'setSwitchMode',
+	systemName: 'gSetSwitchMode',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.5.1.6',
+	tableIndex: 5
+}, {
+	name: 'status',
+	systemName: 'gStatus',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.5.1.7',
+	tableIndex: 6
+}];
+
+export const CAGE_MODULE_VARBINDS: SnmpVarBind[] = [{
+	name: 'slot',
+	systemName: 'mSlot',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.3',
+	tableIndex: 1
+}, {
+	name: 'type',
+	systemName: 'mType',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.4',
+	tableIndex: 2
+}, {
+	name: 'status',
+	systemName: 'mStatus',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.5',
+	tableIndex: 3
+}, {
+	name: 'statusLED',
+	systemName: 'mStatusLED',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.6',
+	tableIndex: 4
+}, {
+	name: 'partNumber',
+	systemName: 'mPartNumber',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.7',
+	tableIndex: 5
+}, {
+	name: 'serial',
+	systemName: 'mSerial',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.8',
+	tableIndex: 6
+}, {
+	name: 'fwVer',
+	systemName: 'mFWrev',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.9',
+	tableIndex: 7
+}, {
+	name: 'name',
+	systemName: 'mName',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.10',
+	tableIndex: 8
 }, {
 	name: 'atten',
+	systemName: 'mAtten',
 	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.6.1.11',
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mAtten.{{index}} string {{value}}'
+	tableIndex: 9
+}, {
+	name: 'lna',
+	systemName: 'mLNA',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.12',
+	tableIndex: 10
 }, {
 	name: 'biasT',
+	systemName: 'mBiasT',
 	type: ObjectType.Integer,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mBiasT.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.13'
+	oid: '1.3.6.1.4.1.40570.1.6.1.13',
+	tableIndex: 11
 }, {
 	name: 'laser',
+	systemName: 'mLaser',
 	type: ObjectType.Integer,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mLaser.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.14'
-}, {
-	name: 'rfLevel',
-	type: ObjectType.Integer,
-	oid: '1.3.6.1.4.1.40570.1.6.1.16'
+	oid: '1.3.6.1.4.1.40570.1.6.1.14',
+	tableIndex: 12
 }, {
 	name: 'rfLinkTest',
+	systemName: 'mRFlinkTest',
 	type: ObjectType.Integer,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRFlinkTest.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.15'
+	oid: '1.3.6.1.4.1.40570.1.6.1.15',
+	tableIndex: 13
+}, {
+	name: 'measRfLevel',
+	systemName: 'mMeasRFlevel',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.6.1.16',
+	tableIndex: 14
 }, {
 	name: 'rfLinkTestTime',
+	systemName: 'mRFlinkTestTime',
 	type: ObjectType.OctetString,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRFlinkTestTime.{{index}} string {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.17'
-}, {
-	name: 'monPlan',
-	type: ObjectType.OctetString,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mMonPlan.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.20'
-}, {
-	name: 'monInterval',
-	type: ObjectType.OctetString,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mMonInterval.{{index}} string {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.21'
+	oid: '1.3.6.1.4.1.40570.1.6.1.17',
+	tableIndex: 15
 }, {
 	name: 'optAlarmLevel',
+	systemName: 'mOptAlarmLevel',
 	type: ObjectType.OctetString,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mOptAlarmLevel.{{index}} string {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.19'
+	oid: '1.3.6.1.4.1.40570.1.6.1.19',
+	tableIndex: 17
+}, {
+	name: 'monPlan',
+	systemName: 'mMonPlan',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.20',
+	tableIndex: 18
+}, {
+	name: 'monInterval',
+	systemName: 'mMonInterval',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.21',
+	tableIndex: 19
 }, {
 	name: 'setDefaults',
+	systemName: 'mSetDefaults',
 	type: ObjectType.Integer,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mSetDefaults.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.22'
+	oid: '1.3.6.1.4.1.40570.1.6.1.22',
+	tableIndex: 20
 }, {
 	name: 'restoreFactory',
+	systemName: 'mRestoreFactory',
 	type: ObjectType.Integer,
-	command: 'snmpset -Os -v2c -c {{community}} localhost RFoF-Cage-MIB::mRestoreFactory.{{index}} integer {{value}}',
-	oid: '1.3.6.1.4.1.40570.1.6.1.23'
+	oid: '1.3.6.1.4.1.40570.1.6.1.23',
+	tableIndex: 21
+}, {
+	name: 'rfLevel',
+	systemName: 'mRFlevel',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.24',
+	tableIndex: 22
+}, {
+	name: 'temp',
+	systemName: 'mTemp',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.25',
+	tableIndex: 23
+}, {
+	name: 'optPower',
+	systemName: 'mOptPower',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.26',
+	tableIndex: 24
+}, {
+	name: 'monTimer',
+	systemName: 'mMonTimer',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.27',
+	tableIndex: 25
+}, {
+	name: 'rfTestTimer',
+	systemName: 'mRFtestTimer',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.28',
+	tableIndex: 26
 }];
 
 export const POWER_VARBINDS: SnmpVarBind[] = [{
 	name: 'status',
+	systemName: 'cPSstatus',
+	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.3'
 }];
 
-export const CAGENETWORK_TABLE: SnmpTable = {
+export const TRAPRECEIVERS_VARBINDS: SnmpVarBind[] = [{
+	name: 'ipAddress',
+	systemName: 'cTrapIPaddress',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.7.1.2',
+	tableIndex: 1
+}, {
+	name: 'levelFilter',
+	systemName: 'cTrapLevelFilter',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.7.1.3',
+	tableIndex: 2
+}, {
+	name: 'community',
+	systemName: 'cTrapCommunity',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.7.1.4',
+	tableIndex: 3
+}];
+
+export const CAGEEVENTS_VARBINDS: SnmpVarBind[] = [{
+	name: 'time',
+	systemName: 'cEventTimeStamp',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.8.1.2',
+	tableIndex: 1
+}, {
+	name: 'level',
+	systemName: 'cEventLevel',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.8.1.3',
+	tableIndex: 2
+}, {
+	name: 'detail',
+	systemName: 'cEventDetail',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.8.1.4',
+	tableIndex: 3
+}];
+
+export const CAGETRAPRECEIVERS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.7',
-	columns: [{
-		index: 2,
-		name: 'ipAddress'
-	}, {
-		index: 3,
-		name: 'levelFilter'
-	}, {
-		index: 4,
-		name: 'community'
-	}]
+	systemName: 'cTrapReceivers',
+	regex: /^\s*(\d)\s*"([\w.:]*)"\s*(critical|warning|change|notify|system)\s*"([\W\w\d]*)"$/,
+	columns: TRAPRECEIVERS_VARBINDS
 };
 
 export const CAGEGROUP_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.5',
-	columns: [{
-		index: 2,
-		name: 'name'
-	}, {
-		index: 3,
-		name: 'type'
-	}, {
-		index: 4,
-		name: 'mdCount'
-	}, {
-		index: 5,
-		name: 'redundencySwitch'
-	}, {
-		index: 7,
-		name: 'status'
-	}]
+	systemName: 'gTable',
+	regex: /^\s*(\d)\s*"([\w\s]*)"\s*(unspecified|simple|bidir|bidirRedundant|cdwmGroup|rx|tx|rxRedundant|txRedundant)\s*(\d)\s*(none|manualPrimary|manualBackup|auto)\s*(none|manualPrimary|manualBackup|auto)\s*(notInstalled|ok|primaryFailed|backupFaild|primaryFailedBackupActive|groupFailure)$/,
+	columns: CAGE_GROUP_VARBINDS
 };
 
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
-	columns: [{
-		index: 0,
-		name: 'group'
-	}, {
-		index: 3,
-		name: 'slot'
-	}, {
-		index: 4,
-		name: 'type'
-	}, {
-		index: 5,
-		name: 'status'
-	}, {
-		index: 6,
-		name: 'statusLED'
-	}, {
-		index: 7,
-		name: 'partNumber'
-	}, {
-		index: 8,
-		name: 'serial'
-	}, {
-		index: 9,
-		name: 'fwVer'
-	}, {
-		index: 10,
-		name: 'name'
-	}, {
-		index: 11,
-		name: 'atten'
-	}, {
-		index: 12,
-		name: 'lna'
-	}, {
-		index: 13,
-		name: 'biasT'
-	}, {
-		index: 14,
-		name: 'laser'
-	}, {
-		index: 15,
-		name: 'rfLinkTest'
-	}, {
-		index: 16,
-		name: 'measRfLevel'
-	}, {
-		index: 17,
-		name: 'rfLinkTestTime'
-	}, {
-		index: 18,
-		name: 'dfbBias'
-	}, {
-		index: 19,
-		name: 'optAlarmLevel'
-	}, {
-		index: 20,
-		name: 'monPlan'
-	}, {
-		index: 21,
-		name: 'monInterval'
-	}, {
-		index: 22,
-		name: 'setDefaults'
-	}, {
-		index: 23,
-		name: 'restoreFactory'
-	}, {
-		index: 24,
-		name: 'rfLevel'
-	}, {
-		index: 25,
-		name: 'temp'
-	}, {
-		index: 26,
-		name: 'optPower'
-	}, {
-		index: 27,
-		name: 'monTimer'
-	}, {
-		index: 28,
-		name: 'rfTestTimer'
-	}]
+	systemName: 'mTable',
+	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"(\d*)"\s*"([\d.]*)"\s*"([\d.]*)"\s*"([\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on)\s*(off|on)\s*"([\d:]*)"\s*"([\s\d.]*)"\s*"([\d.]*)"\s*(sleep|active)\s*"([\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([-\d:.]*)"\s*"([\s\d.]*)"\s*"([\s\d.]*)"\s*"([\d-:]*)"\s*"([\d-:]*)"$/gm,
+	columns: CAGE_MODULE_VARBINDS
 };
 
 export const CAGEEVENTS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.8',
-	columns: [{
-		index: 2,
-		name: 'time'
-	}, {
-		index: 3,
-		name: 'level'
-	}, {
-		index: 4,
-		name: 'detail'
-	}]
+	regex: /^\s*(\d)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"([\s\w\W]*)"$/gm,
+	systemName: 'cEventLogTable',
+	columns: CAGEEVENTS_VARBINDS
 };
 
 export interface SnmpVarBind {
-	name?: string;
-	type?: number;
+	name: string;
+	systemName?: string;
+	type?: ObjectType;
 	oid: string;
 	index?: string;
-	value?: string;
-	command?: string;
-}
-
-export interface SnmpTableColumn {
-	index: number;
-	name: string;
+	tableIndex?: number;
 	value?: string;
 }
 
 export interface SnmpTable {
 	oid: string;
-	columns: SnmpTableColumn[];
+	systemName: string;
+	regex: RegExp;
+	columns: SnmpVarBind[];
 }

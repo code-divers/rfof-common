@@ -10,10 +10,11 @@ export class Cage {
 }
 
 export class CageGroup {
+	index: number;
 	name: string;
 	type: GroupType;
 	mdCount: number;
-	redundencySwitch: GroupRedundency;
+	redundancySwitch: GroupRedundancy;
 	status: GroupStatus;
 }
 
@@ -36,7 +37,7 @@ export class CageModule {
 	atten: string;
 	lna: LNAStatus;
 	biasT: BiasTState;
-	laser: LNAStatus;
+	laser: LaserStatus;
 	rfLinkTest: RfLinkTest;
 	rfLinkTestTime: string;
 	measRfLevel: MeasRfLevel;
@@ -90,7 +91,7 @@ export enum GroupType {
 	txRedundant = 8
 }
 
-export enum GroupRedundency {
+export enum GroupRedundancy {
 	none = 0,
 	manualprimary = 1,
 	manualbackup = 2,
@@ -128,6 +129,12 @@ export enum ModuleStatusLED {
 }
 
 export enum LNAStatus {
+	off = 0,
+	on = 1,
+	none = 4
+}
+
+export enum LaserStatus {
 	off = 0,
 	on = 1,
 	none = 4
