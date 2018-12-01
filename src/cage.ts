@@ -53,6 +53,10 @@ export class EventLogItem {
 	time: Date;
 	level: EventLevel;
 	detail: string;
+	slot?: number;
+	module?: CageModule;
+	property?: string;
+	value?: string;
 }
 
 export class PowerSupply {
@@ -144,7 +148,7 @@ export enum BiasTState {
 	off = 0,
 	on = 1,
 	alwayson = 2,
-	autoplay = 3,
+	autoOPLA = 3,
 	none = 4
 }
 
@@ -154,6 +158,7 @@ export enum MonPlan {
 }
 
 export enum EventLevel {
+	notavail = -1,
 	critical = 0,
 	warning = 1,
 	change = 2,

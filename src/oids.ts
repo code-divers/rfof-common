@@ -294,13 +294,13 @@ export const CAGEGROUP_TABLE: SnmpTable = {
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
 	systemName: 'mTable',
-	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"(\d*)"\s*"([\d.]*)"\s*"([\d.]*)"\s*"([\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([\d:]*)"\s*"(n\/a|[\s\d.]*)"\s*"([\d.]*)"\s*(sleep|active)\s*"([\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([-\d:.]*)"\s*"([\s\d.]*)"\s*"([\s\d.]*)"\s*"([\d-:]*)"\s*"([\d-:]*)"$/gm,
+	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"(\d*)"\s*"([\d.]*)"\s*"([\d.]*)"\s*"([\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([\d:]*)"\s*"(n\/a|[\s\d.]*)"\s*"([\d.]*)"\s*(sleep|active)\s*"([\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([\s\d.]*)"\s*"([\s\d.]*)"\s*"([\d-:]*)"\s*"([\d-:]*)"$/,
 	columns: CAGE_MODULE_VARBINDS
 };
 
 export const CAGEEVENTS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.8',
-	regex: /^\s*(\d)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"([\s\w\W]*)"$/gm,
+	regex: /^\s*(\d*)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"([\w\d\s,=/(/):]*)"$/,
 	systemName: 'cEventLogTable',
 	columns: CAGEEVENTS_VARBINDS
 };
