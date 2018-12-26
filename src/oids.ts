@@ -9,6 +9,11 @@ export const CAGE_VARBINDS: SnmpVarBind[] = [{
 	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.1.1'
 }, {
+	name: 'partNumber',
+	systemName: 'pPartNumber',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.1.2'
+}, {
 	name: 'serial',
 	systemName: 'pSerial',
 	type: ObjectType.OctetString,
@@ -38,6 +43,30 @@ export const CAGE_VARBINDS: SnmpVarBind[] = [{
 	systemName: 'pSlotsCount',
 	type: ObjectType.Integer,
 	oid: '1.3.6.1.4.1.40570.1.1.8'
+}];
+
+export const CAGE_SETTINGS_VARBINDS: SnmpVarBind[] = [{
+	name: 'name',
+	systemName: 'cName',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.2.1'
+}, {
+	name: 'logfile',
+	systemName: 'cLogfile',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.2.6'
+}, {
+	name: 'userConfig',
+	systemName: 'cUserCageConfig',
+	type: ObjectType.Integer,
+	oid: '1.3.6.1.4.1.40570.1.2.8'
+}, {
+	name: 'location',
+	systemName: 'sysLocation',
+	type: ObjectType.OctetString,
+	group: 'SNMPv2-MIB',
+	index: '0',
+	oid: '1.3.6.1.2.1.1.6'
 }];
 
 export const CAGE_GROUP_VARBINDS: SnmpVarBind[] = [{
@@ -169,6 +198,12 @@ export const CAGE_MODULE_VARBINDS: SnmpVarBind[] = [{
 	oid: '1.3.6.1.4.1.40570.1.6.1.17',
 	tableIndex: 15
 }, {
+	name: 'dfbBias',
+	systemName: 'mDFBbias',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.18',
+	tableIndex: 16
+}, {
 	name: 'optAlarmLevel',
 	systemName: 'mOptAlarmLevel',
 	type: ObjectType.OctetString,
@@ -294,7 +329,7 @@ export const CAGEGROUP_TABLE: SnmpTable = {
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
 	systemName: 'mTable',
-	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"(\d*)"\s*"([\d.]*)"\s*"([\d.]*)"\s*"([\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([\d:]*)"\s*"(n\/a|[\s\d.]*)"\s*"([\d.]*)"\s*(sleep|active)\s*"([\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([\s\d.]*)"\s*"([\s\d.]*)"\s*"([\d-:]*)"\s*"([\d-:]*)"$/,
+	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"([-\d.]*)"\s*"([-\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([-\d:]*)"\s*"(n\/a|[-\s\d.]*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([-\s\d.]*)"\s*"([-\s\d.]*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"$/,
 	columns: CAGE_MODULE_VARBINDS
 };
 
@@ -313,6 +348,7 @@ export interface SnmpVarBind {
 	index?: string;
 	tableIndex?: number;
 	value?: string;
+	group?: string;
 }
 
 export interface SnmpTable {

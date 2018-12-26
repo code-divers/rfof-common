@@ -8,7 +8,7 @@ npm run build
 echo "install rfof-server"
 cd ../rfof-server
 npm install
-npm run build:prod
+npm run build
 
 echo "install rfof-client"
 cd ../rfof-client

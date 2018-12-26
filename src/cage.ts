@@ -1,12 +1,21 @@
 export class Cage {
 	OID: string;
-	description?: string;
-	serial?: string;
-	version?: string;
-	versionDate?: string;
-	psCount?: number;
-	grCount?: number;
-	slotsCount?: number;
+	description: string;
+	partNumber: string;
+	serial: string;
+	version: string;
+	versionDate: string;
+	psCount: number;
+	grCount: number;
+	slotsCount: number;
+	settings: CageSettings;
+}
+
+export class CageSettings {
+	name: string;
+	logFile: LogfileStatus;
+	location: string;
+	userConfig: ConfigOption;
 }
 
 export class CageGroup {
@@ -67,6 +76,11 @@ export class TrapReciver {
 	ipAddress: string;
 	levelFilter: TrapLevelFilter;
 	community: string;
+}
+
+export enum LogfileStatus {
+	suspendLog = 0,
+	log = 1
 }
 
 export enum PowerStatus {
@@ -185,5 +199,11 @@ export enum SetDefaults {
 export enum RestoreFactory {
 	noAction = 0,
 	restoreFactory = 1
+}
+
+export enum ConfigOption {
+	delete = -1,
+	noAction = 0,
+	save = 1
 }
 

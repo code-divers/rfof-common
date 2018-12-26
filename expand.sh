@@ -18,7 +18,7 @@ npm run build
 echo "install rfof-server package"
 cd /etc/RFoptic/rfof-server
 #npm install
-npm run build
+npm run build:prod
 
 echo "install rfof-client package"
 cd /etc/RFoptic/rfof-client
