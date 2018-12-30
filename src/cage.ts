@@ -25,11 +25,11 @@ export class CageGroup {
 	mdCount: number;
 	redundancySwitch: GroupRedundancy;
 	status: GroupStatus;
+	modules: CageModule[] = [];
 }
 
 export class CageModule {
 	name: string;
-	group: CageGroup;
 	index: string;
 	slot: number;
 	type: ModuleType;

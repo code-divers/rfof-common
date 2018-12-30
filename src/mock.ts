@@ -53,7 +53,8 @@ export const CAGE_GROUPS: CageGroup[] = [
 		type: GroupType.simple,
 		mdCount: 2,
 		redundancySwitch: GroupRedundancy.auto,
-		status: GroupStatus.ok
+		status: GroupStatus.ok,
+		modules: []
 	},
 	{
 		index: 2,
@@ -61,7 +62,8 @@ export const CAGE_GROUPS: CageGroup[] = [
 		type: GroupType.rx,
 		mdCount: 2,
 		redundancySwitch: GroupRedundancy.manualprimary,
-		status: GroupStatus.ok
+		status: GroupStatus.ok,
+		modules: []
 	},
 	{
 		index: 3,
@@ -69,14 +71,15 @@ export const CAGE_GROUPS: CageGroup[] = [
 		type: GroupType.bidir,
 		mdCount: 4,
 		redundancySwitch: GroupRedundancy.manualprimary,
-		status: GroupStatus.ok
+		status: GroupStatus.ok,
+		modules: []
 	}
 ];
 
 export const CAGE_MODULES: CageModule[] = [
 	{
 		name: '30322089',
-		group: CAGE_GROUPS[0],
+		// group: CAGE_GROUPS[0],
 		index: '1.1',
 		slot: 0,
 		type: ModuleType.receiver,
@@ -105,7 +108,7 @@ export const CAGE_MODULES: CageModule[] = [
 		restoreFactory: RestoreFactory.noAction
 	}, {
 		name: '30322082',
-		group: CAGE_GROUPS[0],
+		// group: CAGE_GROUPS[0],
 		index: '1.1',
 		slot: 1,
 		type: ModuleType.receiver,
@@ -134,7 +137,7 @@ export const CAGE_MODULES: CageModule[] = [
 		restoreFactory: RestoreFactory.noAction
 	}, {
 		name: '303220801',
-		group: CAGE_GROUPS[2],
+		// group: CAGE_GROUPS[2],
 		index: '1.2',
 		slot: 2,
 		type: ModuleType.receiver,
@@ -163,7 +166,7 @@ export const CAGE_MODULES: CageModule[] = [
 		restoreFactory: RestoreFactory.noAction
 	}, {
 		name: '303220890',
-		group: CAGE_GROUPS[3],
+		// group: CAGE_GROUPS[3],
 		index: '2.1',
 		slot: 2,
 		type: ModuleType.receiver,

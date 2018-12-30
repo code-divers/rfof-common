@@ -335,7 +335,7 @@ export const CAGEMODULE_TABLE: SnmpTable = {
 
 export const CAGEEVENTS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.8',
-	regex: /^\s*(\d*)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"([\w\d\s,=/(/):]*)"$/,
+	regex: /^\s*(\d*)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"(.*)"$/,
 	systemName: 'cEventLogTable',
 	columns: CAGEEVENTS_VARBINDS
 };
