@@ -6,6 +6,7 @@ After=network.target
 Environment="RFOF_PORT=20080"
 Type=simple
 WorkingDirectory=/etc/RFoptic/rfof-server/dist
+ExecStartPre=/bin/sleep 30s
 ExecStart=/usr/bin/node index.js
 Restart=on-failure
 

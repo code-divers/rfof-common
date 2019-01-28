@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+SERVER_ADDRESS=31.168.173.124
+SERVER_USER=pi
+
+scp rfof-common.zip $SERVER_USER@$SERVER_ADDRESS:/etc/RFoptic
+ssh $SERVER_USER@$SERVER_ADDRESS "bash -s" < "expand_example.sh"

@@ -32,6 +32,7 @@ export class CageModule {
 	name: string;
 	index: string;
 	slot: number;
+	slotLabel: string;
 	type: ModuleType;
 	status: ModuleStatus;
 	statusLED: ModuleStatusLED;
@@ -76,6 +77,11 @@ export class TrapReciver {
 	ipAddress: string;
 	levelFilter: TrapLevelFilter;
 	community: string;
+}
+
+export enum CageState {
+	off = 0,
+	on = 1
 }
 
 export enum LogfileStatus {

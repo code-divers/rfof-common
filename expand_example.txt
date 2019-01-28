@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+cd /etc/RFoptic
+
+unzip -o rfof-common.zip -d /etc/RFoptic/rfof-common
+
+sudo systemctl stop rfof-server-service
+sudo systemctl start rfof-server-service

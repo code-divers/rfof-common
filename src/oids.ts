@@ -263,6 +263,12 @@ export const CAGE_MODULE_VARBINDS: SnmpVarBind[] = [{
 	type: ObjectType.OctetString,
 	oid: '1.3.6.1.4.1.40570.1.6.1.28',
 	tableIndex: 26
+}, {
+	name: 'slotLabel',
+	systemName: 'mSlotLabel',
+	type: ObjectType.OctetString,
+	oid: '1.3.6.1.4.1.40570.1.6.1.29',
+	tableIndex: 27
 }];
 
 export const POWER_VARBINDS: SnmpVarBind[] = [{
@@ -329,7 +335,7 @@ export const CAGEGROUP_TABLE: SnmpTable = {
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
 	systemName: 'mTable',
-	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"([-\d.]*)"\s*"([-\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([-\d:]*)"\s*"(n\/a|[-\s\d.]*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([-\s\d.]*)"\s*"([-\s\d.]*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"$/,
+	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"([-\d.]*)"\s*"([-\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([-\d:]*)"\s*"(n\/a|[-\s\d.]*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([-\s\d.]*)"\s*"([-\s\d.]*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"\s*"(\w*)"$/,
 	columns: CAGE_MODULE_VARBINDS
 };
 
