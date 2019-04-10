@@ -321,27 +321,27 @@ export const CAGEEVENTS_VARBINDS: SnmpVarBind[] = [{
 export const CAGETRAPRECEIVERS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.7',
 	systemName: 'cTrapReceivers',
-	regex: /^\s*(\d)\s*"([\w.:]*)"\s*(critical|warning|change|notify|system)\s*"([\W\w\d]*)"$/,
+	regex: /^\s*(\d)\s*"(...*)"\s*(critical|warning|change|notify|system)\s*"(...*)"$/,
 	columns: TRAPRECEIVERS_VARBINDS
 };
 
 export const CAGEGROUP_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.5',
 	systemName: 'gTable',
-	regex: /^\s*(\d)\s*"([\w\s]*)"\s*(unspecified|simple|bidir|bidirRedundant|cdwmGroup|rx|tx|rxRedundant|txRedundant)\s*(\d)\s*(none|manualPrimary|manualBackup|auto)\s*(none|manualPrimary|manualBackup|auto)\s*(notInstalled|ok|primaryFailed|backupFaild|primaryFailedBackupActive|groupFailure)$/,
+	regex: /^\s*(\d)\s*"(...*)"\s*(unspecified|simple|bidir|bidirRedundant|cdwmGroup|rx|tx|rxRedundant|txRedundant)\s*(\d)\s*(none|manualPrimary|manualBackup|auto)\s*(none|manualPrimary|manualBackup|auto)\s*(notInstalled|ok|primaryFailed|backupFaild|primaryFailedBackupActive|groupFailure)$/,
 	columns: CAGE_GROUP_VARBINDS
 };
 
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
 	systemName: 'mTable',
-	regex: /^\s*(\d.\d)\s*(\d)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"([A-Za-z\d-]*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"([-\d.]*)"\s*"([-\d.\s]*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"([-\d:]*)"\s*"(n\/a|[-\s\d.]*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"([\s-\d:.]*)"\s*"([-\s\d.]*)"\s*"([-\s\d.]*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"\s*"(\w*)"$/,
+	regex: /^\s*(\d.\d)\s*(\d*)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"(...*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"(...*)"\s*"(...*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"(...*)"\s*"(...*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"\s*"(...*)"$/,
 	columns: CAGE_MODULE_VARBINDS
 };
 
 export const CAGEEVENTS_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.8',
-	regex: /^\s*(\d*)\s*"([\s\w-:]*)"\s*(critical|warning|change|notify|system)\s*"(.*)"$/,
+	regex: /^\s*(\d*)\s*"(...*)"\s*(critical|warning|change|notify|system)\s*"(...*)"$/,
 	systemName: 'cEventLogTable',
 	columns: CAGEEVENTS_VARBINDS
 };

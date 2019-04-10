@@ -4,6 +4,7 @@ import {
 	CageGroup,
 	CageModule,
 	ConfigOption,
+	SlotStatus,
 	PowerSupply,
 	PowerStatus,
 	TrapReciver,
@@ -83,6 +84,7 @@ export const CAGE_MODULES: CageModule[] = [
 		index: '1.1',
 		slot: 0,
 		slotLabel: "RFIN",
+		slotStatus: SlotStatus.in,
 		type: ModuleType.receiver,
 		status: ModuleStatus.fault,
 		statusLED: ModuleStatusLED.red,
@@ -111,8 +113,9 @@ export const CAGE_MODULES: CageModule[] = [
 		name: '30322082',
 		// group: CAGE_GROUPS[0],
 		index: '1.1',
-		slot: 1,
+		slot: 9,
 		slotLabel: "RFOUT",
+		slotStatus: SlotStatus.in,
 		type: ModuleType.receiver,
 		status: ModuleStatus.fault,
 		statusLED: ModuleStatusLED.red,
@@ -142,7 +145,8 @@ export const CAGE_MODULES: CageModule[] = [
 		// group: CAGE_GROUPS[2],
 		index: '1.2',
 		slotLabel: "RFIN",
-		slot: 2,
+		slotStatus: SlotStatus.in,
+		slot: 11,
 		type: ModuleType.receiver,
 		status: ModuleStatus.fault,
 		statusLED: ModuleStatusLED.red,
@@ -173,6 +177,7 @@ export const CAGE_MODULES: CageModule[] = [
 		index: '2.1',
 		slot: 2,
 		slotLabel: "RFOUT",
+		slotStatus: SlotStatus.in,
 		type: ModuleType.receiver,
 		status: ModuleStatus.fault,
 		statusLED: ModuleStatusLED.red,
@@ -202,10 +207,12 @@ export const CAGE_MODULES: CageModule[] = [
 
 export const CAGE_POWERSUPPLY: PowerSupply[] = [
 	{
-		status: PowerStatus.ok
+		status: PowerStatus.ok,
+		slot: 1,
 	},
 	{
-		status: PowerStatus.ok
+		status: PowerStatus.ok,
+		slot: 2
 	}
 ];
 

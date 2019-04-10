@@ -37,6 +37,10 @@ rm -rf src
 cd /etc/RFoptic/rfof-common
 sudo cp rfof-server-service.service /lib/systemd/system
 
+cd /etc/RFoptic/
+sudo rm -rf /home/pi/projects/etcRFoptic.gz
+sudo tar -czf /home/pi/projects/etcRFoptic.gz rfof-common/ rfof-client/ rfof-server/
+
 sudo systemctl daemon-reload
 sudo systemctl stop rfof-server-service
 sudo systemctl start rfof-server-service

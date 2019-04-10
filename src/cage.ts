@@ -11,6 +11,13 @@ export class Cage {
 	settings: CageSettings;
 }
 
+export class CageSlot {
+	num: number;
+	module?: CageModule;
+	label?: string;
+	status: SlotStatus;
+}
+
 export class CageSettings {
 	name: string;
 	logFile: LogfileStatus;
@@ -33,6 +40,7 @@ export class CageModule {
 	index: string;
 	slot: number;
 	slotLabel: string;
+	slotStatus: SlotStatus = SlotStatus.in;
 	type: ModuleType;
 	status: ModuleStatus;
 	statusLED: ModuleStatusLED;
@@ -67,9 +75,11 @@ export class EventLogItem {
 	module?: CageModule;
 	property?: string;
 	value?: string;
+	psu?: number;
 }
 
 export class PowerSupply {
+	slot: number;
 	status: PowerStatus;
 }
 
@@ -136,6 +146,11 @@ export enum ModuleType {
 	transmitter = 6
 }
 
+export enum SlotStatus {
+	out = 0,
+	in = 1
+}
+
 export enum ModuleStatus {
 	none = 0,
 	ok = 1,
@@ -148,8 +163,8 @@ export enum ModuleStatusLED {
 	red = 2,
 	cyan = 3,
 	blue = 4,
-	redblink = 10,
-	blueblink = 12
+	redBlink = 10,
+	blueBlink = 12
 }
 
 export enum LNAStatus {
