@@ -335,7 +335,7 @@ export const CAGEGROUP_TABLE: SnmpTable = {
 export const CAGEMODULE_TABLE: SnmpTable = {
 	oid: '1.3.6.1.4.1.40570.1.6',
 	systemName: 'mTable',
-	regex: /^\s*(\d.\d)\s*(\d*)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"(...*)"\s*"([-\d]*)"\s*"([-\d.]*)"\s*"(...*)"\s*"(...*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"(...*)"\s*"(...*)"\s*"([-\d.]*)"\s*(sleep|active)\s*"([-\d:]*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"([-\d-:]*)"\s*"([-\d-:]*)"\s*"(...*)"$/,
+	regex: /^\s*(\d.\d)\s*(\d*)\s*(unspecified|receiver|transmitter)\s*(none|ok|fault)\s*(off|green|red|cyan|blue|redBlink|blueBlink)\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*(off|on|none)\s*(off|on|alwaysOn|autoOPLA|none)\s*(off|on|none)\s*(off|on|)\s*(off|on)\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*(sleep|active)\s*"(...*)"\s*(unchanged|setDefaults|changed)\s*(noAction|restoreFactory)\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"(...*)"\s*"(...*)"$/,
 	columns: CAGE_MODULE_VARBINDS
 };
 

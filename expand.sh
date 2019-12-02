@@ -41,7 +41,7 @@ rm -rf src
 
 #/home/pi/projects/etcRFoptic.gz
 cd /etc/RFoptic/
-now="$(date +'%d%m%Y')"
+now="$(date +'%m%d%Y')"
 file="etcRFoptic${now}.gz"
 sudo rm -rf $file
 sudo tar -czf $file rfof-common/ rfof-client/ rfof-server/

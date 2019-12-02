@@ -13,6 +13,8 @@ export class Cage {
 
 export class CageSlot {
 	num: number;
+	moduleIndex?: number;
+	groupIndex?: number;
 	module?: CageModule;
 	label?: string;
 	status: SlotStatus;
@@ -38,6 +40,7 @@ export class CageGroup {
 export class CageModule {
 	name: string;
 	index: string;
+	groupIndex: number;
 	slot: number;
 	slotLabel: string;
 	slotStatus: SlotStatus = SlotStatus.in;
@@ -73,6 +76,7 @@ export class EventLogItem {
 	detail: string;
 	slot?: number;
 	module?: CageModule;
+	group?: CageGroup;
 	property?: string;
 	value?: string;
 	psu?: number;
